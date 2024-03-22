@@ -1,9 +1,27 @@
-import Image from "next/image";
+
+import Link from 'next/link';
+import Navbar from "./navbar/page";
+import dynamic from 'next/dynamic';
+import Profile from './profile/page';
+
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div> hiiiiiii</div>
-    </main>
+    <>
+      <Navbar />
+
+      <div className='w-full h-2  '>
+      <main className="slider-bg">     
+      <Link href="/">
+          <img src="https://static.realestateindia.com/rei/images/header_bg1.jpg" alt="homespere" />
+      </Link>
+      <Profile />
+      </main>
+      </div>
+    </>
   );
 }
+
+const Map = dynamic(() => import('./map/page'), {
+  ssr: false
+});
